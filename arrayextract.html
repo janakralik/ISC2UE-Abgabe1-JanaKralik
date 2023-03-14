@@ -10,24 +10,36 @@
 
       function arrayExtract(array, start, length) {
         let newArray = [];
-        let emptyArray = [];
 
         for (let i = start; i <= length; i++) {
           newArray.push(array[i]);
         }
 
-        if (start < 1 || start > 10) {
-          console.log(emptyArray);
-        }
+        return newArray;
 
-        if (length > 10) {
-          console.log(emptyArray);
+        if (length > exampleArray.length - start) {
+          return [];
         }
 
         if (start < 0) {
+          start = exampleArray.length + start;
         }
 
-        return newArray;
+        if (arguments.length === 1) {
+          return [];
+        }
+
+        if (arguments.length === 2) {
+          length = array.length - start;
+        }
+
+        if (start >= exampleArray.length) {
+          return [];
+        }
+
+        if (length <= 0) {
+          return [];
+        }
       }
 
       console.log(arrayExtract(exampleArray, 1, 4));
