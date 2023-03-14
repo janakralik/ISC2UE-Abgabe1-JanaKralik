@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Temperature Conversion Functions</title>
-</head>
-<body>
+  </head>
+  <body>
+    <script>
+      function convertTemperature(temperature, fromUnit, toUnit) {
+        let umgewandeltesErgebnis;
 
-<script>
-    // TODO: Your JavaScript implementation for temperature conversion goes here.
-</script>
-</body>
+        if (fromUnit == "celsius" && toUnit == "fahrenheit") {
+          umgewandeltesErgebnis = temperature * 1.8 + 32;
+        } else if (fromUnit == "celsius" && toUnit == "kelvin") {
+          umgewandeltesErgebnis = temperature + 273.15;
+        } else if (fromUnit == "fahrenheit" && toUnit == "celsius") {
+          umgewandeltesErgebnis = ((temperature - 32) * 5) / 9;
+        } else if (fromUnit == "fahrenheit" && toUnit == "kelvin") {
+          umgewandeltesErgebnis = (temperature + 459.67) / 1.8;
+        } else if (fromUnit == "kelvin" && toUnit == "celsius") {
+          umgewandeltesErgebnis = temperature - 273.15;
+        } else if (fromUnit == "kelvin" && toUnit == "fahrenheit") {
+          umgewandeltesErgebnis = (temperature - 273.15) * 1.8 + 32;
+        } else if (fromUnit == "celsius" && toUnit == "celsius") {
+          umgewandeltesErgebnis = temperature;
+        } else if (fromUnit == "kelvin" && toUnit == "kelvin") {
+          umgewandeltesErgebnis = temperature;
+        } else if (fromUnit == "fahrenheit" && toUnit == "fahrenheit") {
+          umgewandeltesErgebnis = temperature;
+        } else if (
+          fromUnit !== "celsius" &&
+          fromUnit !== "kelvin" &&
+          fromUnit !== "fahrenheit"
+        ) {
+          umgewandeltesErgebnis = "Invalid argument: degrees";
+        }
+        if (
+          toUnit !== "celsius" &&
+          toUnit !== "kelvin" &&
+          toUnit !== "fahrenheit"
+        ) {
+          umgewandeltesErgebnis = "Invalid argument: degrees";
+        }
+
+        return umgewandeltesErgebnis;
+      }
+
+      console.log(convertTemperature(35, "celsius", "fahrenheit"));
+      console.log(convertTemperature(35, "celsius", "kelvin"));
+      console.log(convertTemperature(35, "celsius", "celsius"));
+      console.log(convertTemperature(35, "kelvin", "fahrenheit"));
+      console.log(convertTemperature(35, "kelvin", "kelvin"));
+      console.log(convertTemperature(35, "kelvin", "celsius"));
+      console.log(convertTemperature(35, "fahrenheit", "fahrenheit"));
+      console.log(convertTemperature(35, "fahrenheit", "kelvin"));
+      console.log(convertTemperature(35, "fahrenheit", "celsius"));
+      console.log(convertTemperature(35, "degrees", "degrees"));
+      console.log(convertTemperature(35, "celsius", "degrees"));
+      console.log(convertTemperature(35, "degrees", "fahrenheit"));
+    </script>
+  </body>
 </html>
